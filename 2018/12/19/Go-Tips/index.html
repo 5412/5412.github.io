@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="吒">
 <meta property="og:description" content="数组长度是数组类型的一部分,eg:元素类型相同但是长度不同的两个数组不是同类型的。 切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。 map是一种无序的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型不能是数组、切片、map，其取值必须可以使用 == 判断；线程不安全，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-19T04:17:42.678Z">
+<meta property="og:updated_time" content="2018-12-19T04:23:00.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go-Tips">
 <meta name="twitter:description" content="数组长度是数组类型的一部分,eg:元素类型相同但是长度不同的两个数组不是同类型的。 切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。 map是一种无序的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型不能是数组、切片、map，其取值必须可以使用 == 判断；线程不安全，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量">
@@ -327,7 +327,7 @@
                 
               
 
-              <time title="创建时间：2018-12-19 11:51:30 / 修改时间：12:17:42" itemprop="dateCreated datePublished" datetime="2018-12-19T11:51:30+08:00">2018-12-19</time>
+              <time title="创建时间：2018-12-19 11:51:30 / 修改时间：12:23:00" itemprop="dateCreated datePublished" datetime="2018-12-19T11:51:30+08:00">2018-12-19</time>
             
 
             
@@ -376,11 +376,9 @@
 <li>goroutine:在for循环中注意参数作用域，非缓冲channel程序必须同时存在接收和写入chan的goroutine.单向chan通常作为函数参数。</li>
 <li>切片也是<strong>并发不安全的</strong>。可考虑加锁，可使用sync.RWMutex来提高读的并发能力。</li>
 <li>file.Seek读并发不安全；file.ReadAt并发安全</li>
-<li>追加写入文件的方法：<br>使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func (f *File)Seek(offset int64, whence int)(ret int64, err)</span><br><span class="line">func (f *File) WreatAt([]byte, off int64)(n int, err)</span><br></pre></td></tr></table></figure>
+<li>追加写入文件的方法：使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func (f *File)Seek(offset int64, whence int)(ret int64, err)</span><br><span class="line">func (f *File) WreatAt([]byte, off int64)(n int, err)</span><br><span class="line">//或者</span><br><span class="line">f, err := os.OpenFile(filename, os.O_WRONLY | os.O_APPEND, 066)</span><br><span class="line">//以追加的方式写入文件</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f, err := os.OpenFile(filename, os.O_WRONLY | os.O_APPEND, 066)</span><br></pre></td></tr></table></figure></p>
-<p>已追加的方式打开直接写入</p>
 
       
     </div>
