@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="吒神话传说中，作为天地间的第一个声音的”吒”字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。 就像计算机中的传奇代码： 1print(&amp;quot;hello world&amp;quot;) 愿本站能像“吒”一样亘古长鸣…..  PS: 5412 为 unicode 编码表，“吒” 字对应的编码。">
+  <meta name="description" content="数组长度是数组类型的一部分,eg:元素类型相同但是长度不同的两个数组不是同类型的。 切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。 map是一种无序的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型不能是数组、切片、map，其取值必须可以使用 == 判断；线程不安全，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量">
 <meta name="keywords" content="5412, 吒, 程序猿, golang, php, hello world">
 <meta property="og:type" content="article">
-<meta property="og:title" content="吒">
-<meta property="og:url" content="http://5412.github.io/2018/06/15/吒/index.html">
+<meta property="og:title" content="Go-Tips">
+<meta property="og:url" content="http://5412.github.io/2018/12/19/Go-Tips/index.html">
 <meta property="og:site_name" content="吒">
-<meta property="og:description" content="吒神话传说中，作为天地间的第一个声音的”吒”字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。 就像计算机中的传奇代码： 1print(&amp;quot;hello world&amp;quot;) 愿本站能像“吒”一样亘古长鸣…..  PS: 5412 为 unicode 编码表，“吒” 字对应的编码。">
+<meta property="og:description" content="数组长度是数组类型的一部分,eg:元素类型相同但是长度不同的两个数组不是同类型的。 切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。 map是一种无序的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型不能是数组、切片、map，其取值必须可以使用 == 判断；线程不安全，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-15T08:38:55.600Z">
+<meta property="og:updated_time" content="2018-12-19T04:17:42.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吒">
-<meta name="twitter:description" content="吒神话传说中，作为天地间的第一个声音的”吒”字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。 就像计算机中的传奇代码： 1print(&amp;quot;hello world&amp;quot;) 愿本站能像“吒”一样亘古长鸣…..  PS: 5412 为 unicode 编码表，“吒” 字对应的编码。">
+<meta name="twitter:title" content="Go-Tips">
+<meta name="twitter:description" content="数组长度是数组类型的一部分,eg:元素类型相同但是长度不同的两个数组不是同类型的。 切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。 map是一种无序的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型不能是数组、切片、map，其取值必须可以使用 == 判断；线程不安全，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量">
 
 
 
 
 
 
-  <link rel="canonical" href="http://5412.github.io/2018/06/15/吒/"/>
+  <link rel="canonical" href="http://5412.github.io/2018/12/19/Go-Tips/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>吒 | 吒</title>
+  <title>Go-Tips | 吒</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://5412.github.io/2018/06/15/吒/">
+    <link itemprop="mainEntityOfPage" href="http://5412.github.io/2018/12/19/Go-Tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="朴朴">
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">吒
+          <h1 class="post-title" itemprop="name headline">Go-Tips
               
             
           </h1>
@@ -327,7 +327,7 @@
                 
               
 
-              <time title="创建时间：2018-06-15 16:06:31 / 修改时间：16:38:55" itemprop="dateCreated datePublished" datetime="2018-06-15T16:06:31+08:00">2018-06-15</time>
+              <time title="创建时间：2018-12-19 11:51:30 / 修改时间：12:17:42" itemprop="dateCreated datePublished" datetime="2018-12-19T11:51:30+08:00">2018-12-19</time>
             
 
             
@@ -365,13 +365,22 @@
       
 
       
-        <h2 id="吒"><a href="#吒" class="headerlink" title="吒"></a>吒</h2><p>神话传说中，作为天地间的第一个声音的”吒”字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。</p>
-<p>就像计算机中的传奇代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello world&quot;)</span><br></pre></td></tr></table></figure>
-<p>愿本站能像“吒”一样亘古长鸣…..</p>
-<blockquote>
-<p>PS: 5412 为 unicode 编码表，“吒” 字对应的编码。</p>
-</blockquote>
+        <ol>
+<li><strong>数组长度是数组类型的一部分</strong>,eg:元素类型相同但是长度不同的两个数组不是同类型的。</li>
+<li>切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。</li>
+<li>map是一种<strong>无序</strong>的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型<strong>不能是数组、切片、map</strong>，其取值<strong>必须可以使用 == 判断</strong>；<strong>线程不安全</strong>，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量，如过使用var定义单不赋值，其值为nil且不可直接map[key] = value 进行赋值。</li>
+<li>原始类型的所有操作同样适用于自定义类型，可以使用显示的类型转换进行转换。</li>
+<li>结构体可以内嵌结构体，但是<strong>如果是其本身那么只能使用指针</strong>。</li>
+<li>方法的接受者只能是使用type定义的类型，方法名不能重复，方法名也不能同字段名重复。</li>
+<li>defer延迟执行，<strong>倒序</strong>，<strong>可能会影响函数最终返回</strong>。</li>
+<li>goroutine:在for循环中注意参数作用域，非缓冲channel程序必须同时存在接收和写入chan的goroutine.单向chan通常作为函数参数。</li>
+<li>切片也是<strong>并发不安全的</strong>。可考虑加锁，可使用sync.RWMutex来提高读的并发能力。</li>
+<li>file.Seek读并发不安全；file.ReadAt并发安全</li>
+<li>追加写入文件的方法：<br>使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">func (f *File)Seek(offset int64, whence int)(ret int64, err)</span><br><span class="line">func (f *File) WreatAt([]byte, off int64)(n int, err)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f, err := os.OpenFile(filename, os.O_WRONLY | os.O_APPEND, 066)</span><br></pre></td></tr></table></figure></p>
+<p>已追加的方式打开直接写入</p>
 
       
     </div>
@@ -399,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/15/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/06/15/吒/" rel="next" title="吒">
+                <i class="fa fa-chevron-left"></i> 吒
               </a>
             
           </div>
@@ -408,10 +417,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/19/Go-Tips/" rel="prev" title="Go-Tips">
-                Go-Tips <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,17 +465,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -515,22 +511,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#吒"><span class="nav-number">1.</span> <span class="nav-text">吒</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
