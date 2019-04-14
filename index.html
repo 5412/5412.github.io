@@ -285,6 +285,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://5412.github.io/2019/04/14/19年面试清单（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朴朴">
+      <meta itemprop="description" content="神话传说中，作为天地间的第一个声音的"吒"字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/14/19年面试清单（一）/" itemprop="url">
+                  19年面试清单（一）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-14 20:55:48 / 修改时间：20:56:59" itemprop="dateCreated datePublished" datetime="2019-04-14T20:55:48+08:00">2019-04-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>19年3月28日，离开了工作3年的单位，4月11日开始了面试之旅，没想到的是今年找工作异常艰难。</p>
+</blockquote>
+<h5 id="遇见的面试题"><a href="#遇见的面试题" class="headerlink" title="遇见的面试题"></a>遇见的面试题</h5><ol>
+<li><p>echo count(strlen(“<a href="http://php.net&quot;)" target="_blank" rel="noopener">http://php.net&quot;)</a>)<br>遇见次数：2<br>手册解释：count传入非数组值会返回1，如果传入的值为NULL，返回0<br>php5.4 输出 1<br>php7.3 将会返回一个warning级别的错误，Parameter must be an array or an object that implements Countable.</p>
+</li>
+<li><p>PHP 加密方式<br>md5() crypt()   sha1() urlencode() base64_encode()</p>
+</li>
+<li><p>不使用第三个变量交换两个变量<br>出现次数： 1<br>方法一： 使用异或操作。<br>方法二： 使用list($a, $b) = array($a, $b), 注意php7 会改变$a, $b 顺序。<br>方法三： 字符串可以将两变量拼接后去截取。</p>
+</li>
+<li><p>shell 获取文件每行第三个元素  </p>
+ <figure class="highlight awk"><figcaption><span>'&#123;print $3&#125;' test" ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>. shell 输出当前的pid  </span><br><span class="line">$$: 当前shell的pid  </span><br><span class="line">$!：上一个进程的pid  </span><br><span class="line">$?: 上个命令推出状态或函数返回值</span><br><span class="line"><span class="variable">$0</span>: 当前进程名  </span><br><span class="line"><span class="variable">$n</span>: 传递给脚本第n参数  </span><br><span class="line"><span class="variable">$#</span>: 传递给脚本或本函数的参数个数  </span><br><span class="line">$*: 传给脚本的所有参数  </span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 遍历文件夹  </span><br><span class="line">出现次数：<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<pre><code>function myScanDir($filename) {
+$files = [];
+if (is_dir($filename)) {
+    $handle = opendir($filename);
+    while($file = readDir($handle)) {
+        if (in_array($file, [&quot;.&quot;, &quot;..&quot;])) {
+            continue;
+        }
+        $chirldFilename = $filename . DIRECTORY_SEPARATOR . $file;
+        if (is_dir($chirldFilename)) {
+            $files[$file] = myScanDir($chirldFilename);
+        } else {
+            $files[] = $file;
+        }
+    }
+    closedir($handle);
+}
+return $files;
+</code></pre><p> }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">1. 多进程同时读写一个文件  </span><br><span class="line">协同锁、LOCK_SH、LOCK_EX、LOCK_UN、LOCK_NB、</span><br></pre></td></tr></table></figure>
+<p> function myWrite($filename, $output) {<br> $handle = fopen($filename);<br> if(flock($handle, LOCK_EX)) {</p>
+<pre><code>fwrite($handle, $output);
+fflush($handle);
+flock($handle, LOCK_UN);
+</code></pre><p> } else {</p>
+<pre><code>throw new exception(&quot;文件被占用&quot;);
+</code></pre><p> }</p>
+<pre><code>fclose($handle);
+</code></pre><p> }</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. mysql快速清空数据库``` select CONCAT(&apos;truncate TABLE &apos;,table_schema,&apos;.&apos;,TABLE_NAME, &apos;;&apos;) from INFORMATION_SCHEMA.TABLES where  table_schema in (&apos;数据库1&apos;,&apos;数据库2&apos;);``` 然后再替换替换。</span><br><span class="line"></span><br><span class="line">1.  mysql 查找重复记录  </span><br><span class="line">假设表名user, 字段分别为id, username, email, 查询username重复的记录 </span><br><span class="line">方法一：``` select id,username,count(*) as counts from user group by username having counts &gt; 1;``` 可能会报错，5.7版本增加了对功能依赖的检测，select 的字段必须出现在 group by 中。  </span><br><span class="line">修改方法 ``` select @@global.sql_mode; set @@global.sql_mode = &quot;ONLY_FULL_GROUP_BY,....&quot;;``` 删除其中的 ONLY_FULL_GROUP_BY.或者设置my.ini  </span><br><span class="line">方法二：5.7 版本  </span><br><span class="line">查询重复字段： ``` select username from user GROUP BY username HAVING COUNT(*) &gt; 1;```  </span><br><span class="line">查询重复记录：```select * from user a where (select count(*) from user where username = a.username ) &gt; 1 order by  username; ```  </span><br><span class="line">过滤记录：``` select * from user where id in (Select min(id) From user Group By username);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mysql 查学生各科分数前三<br>student_score{id,name,subject_id,score}  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># mysql 删除ONLY_FULL_GROUP_BY</span><br><span class="line">select a.user_id, a.subject_id,a.score from student_score a</span><br><span class="line">inner join student_score b on b.subject_id = a.subject_id and a.score &lt;= b.score</span><br><span class="line">group by a.user_id, a.subject_id</span><br><span class="line">having count(*) &lt;= 3</span><br><span class="line">order by a.score desc;</span><br><span class="line"></span><br><span class="line"># 兼容版本</span><br><span class="line">select c.* from student_score c inner join</span><br><span class="line">(select a.user_id, a.subject_id from student_score a </span><br><span class="line"> inner join student_score b on b.subject_id = a.subject_id and a.score &lt;= b.score</span><br><span class="line"> group by a.user_id, a.subject_id having count(*) &lt;= 3) as d </span><br><span class="line"> on c.user_id = d.user_id and c.subject_id = d.subject_id </span><br><span class="line"> order by c.subject_id,c.score;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库评论回复功能 详见CSDN某大神著作<a href="https://blog.csdn.net/ztchun/article/details/71106117" target="_blank" rel="noopener">《数据库设计——评论回复功能》</a></p>
+</li>
+<li><a href="https://github.com/5412/php-story/blob/master/sort/bubble.php" target="_blank" rel="noopener">冒泡排序</a></li>
+<li>最近最少使用缓存失效策略算法实现 <a href="https://github.com/5412/php-story/blob/master/cache-elimination/lru.php" target="_blank" rel="noopener">LRU</a></li>
+<li>内存256M， 10G文件排序实现 <a href="">file sort</a><blockquote>
+<p>那些打不死我的，必将使我更加强大。</p>
+</blockquote>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://5412.github.io/2018/12/19/Go-Tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -760,7 +954,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -804,7 +998,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
