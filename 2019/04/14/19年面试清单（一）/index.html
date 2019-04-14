@@ -158,11 +158,11 @@
 </li>
 </ol>
 <ol>
-<li><p>多进程同时读写一个文件<br>协同锁、LOCK_SH、LOCK_EX、LOCK_UN、LOCK_NB、</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function myWrite($filename, $output) &#123;</span><br><span class="line">$handle = fopen($filename);</span><br><span class="line">if(flock($handle, LOCK_EX)) &#123;</span><br><span class="line">    fwrite($handle, $output);</span><br><span class="line">    fflush($handle);</span><br><span class="line">    flock($handle, LOCK_UN);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    throw new exception(&quot;文件被占用&quot;);</span><br><span class="line">&#125;</span><br><span class="line">    fclose($handle);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>多进程同时读写一个文件<br>协同锁、LOCK_SH、LOCK_EX、LOCK_UN、LOCK_NB、  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function myWrite($filename, $output) &#123;</span><br><span class="line">    $handle = fopen($filename);</span><br><span class="line">    if(flock($handle, LOCK_EX)) &#123;</span><br><span class="line">        fwrite($handle, $output);</span><br><span class="line">        fflush($handle);</span><br><span class="line">        flock($handle, LOCK_UN);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new exception(&quot;文件被占用&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    fclose($handle);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><a href="https://github.com/5412/php-story/blob/master/sort/bubble.php" target="_blank" rel="noopener">冒泡排序</a></p>
-</li>
+</ol>
+<ol start="3">
+<li><a href="https://github.com/5412/php-story/blob/master/sort/bubble.php" target="_blank" rel="noopener">冒泡排序</a></li>
 <li><a href="https://blog.csdn.net/youyangyouni/article/details/80988852" target="_blank" rel="noopener">最近最少使用缓存失效策略算法实现 LRU</a></li>
 <li><p><a href="">内存256M， 10G文件排序实现 file sort</a></p>
 <h5 id="数据库题"><a href="#数据库题" class="headerlink" title="数据库题"></a>数据库题</h5></li>
