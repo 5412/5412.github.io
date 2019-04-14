@@ -141,7 +141,7 @@
     <blockquote>
 <p>19年3月28日，离开了工作3年的单位，4月11日开始了面试之旅，没想到的是今年找工作异常艰难。</p>
 </blockquote>
-<h4 id="遇见的面试题"><a href="#遇见的面试题" class="headerlink" title="遇见的面试题"></a>遇见的面试题</h4><h5 id="普通题"><a href="#普通题" class="headerlink" title="普通题"></a>普通题</h5><ol>
+<h5 id="普通题"><a href="#普通题" class="headerlink" title="普通题"></a>普通题</h5><ol>
 <li><p>echo count(strlen(“<a href="http://php.net&quot;)" target="_blank" rel="noopener">http://php.net&quot;)</a>)<br>遇见次数：2<br>手册解释：count传入非数组值会返回1，如果传入的值为NULL，返回0<br>php5.4 输出 1<br>php7.3 将会返回一个warning级别的错误，Parameter must be an array or an object that implements Countable.</p>
 </li>
 <li><p>PHP 加密方式<br>md5() crypt()   sha1() urlencode() base64_encode()</p>
@@ -163,7 +163,7 @@
 </li>
 <li><p><a href="https://github.com/5412/php-story/blob/master/sort/bubble.php" target="_blank" rel="noopener">冒泡排序</a></p>
 </li>
-<li><a href="https://github.com/5412/php-story/blob/master/cache-elimination/lru.php" target="_blank" rel="noopener">最近最少使用缓存失效策略算法实现 LRU</a></li>
+<li><a href="https://blog.csdn.net/youyangyouni/article/details/80988852" target="_blank" rel="noopener">最近最少使用缓存失效策略算法实现 LRU</a></li>
 <li><p><a href="">内存256M， 10G文件排序实现 file sort</a></p>
 <h5 id="数据库题"><a href="#数据库题" class="headerlink" title="数据库题"></a>数据库题</h5></li>
 <li><p>mysql快速清空数据库<figure class="highlight plain"><figcaption><span>CONCAT('truncate TABLE ',table_schema,'.',TABLE_NAME, ';') from INFORMATION_SCHEMA.TABLES where  table_schema in ('数据库1','数据库2');``` 然后再替换替换。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1.  mysql 查找重复记录  </span><br><span class="line">假设表名user, 字段分别为id, username, email, 查询username重复的记录 </span><br><span class="line">方法一：``` select id,username,count(*) as counts from user group by username having counts &gt; 1;``` 可能会报错，5.7版本增加了对功能依赖的检测，select 的字段必须出现在 group by 中。  </span><br><span class="line">修改方法 ``` select @@global.sql_mode; set @@global.sql_mode = &quot;ONLY_FULL_GROUP_BY,....&quot;;``` 删除其中的 ONLY_FULL_GROUP_BY.或者设置my.ini  </span><br><span class="line">方法二：5.7 版本  </span><br><span class="line">查询重复字段： ``` select username from user GROUP BY username HAVING COUNT(*) &gt; 1;```  </span><br><span class="line">查询重复记录：```select * from user a where (select count(*) from user where username = a.username ) &gt; 1 order by  username; ```  </span><br><span class="line">过滤记录：``` select * from user where id in (Select min(id) From user Group By username);</span><br></pre></td></tr></table></figure></p>
