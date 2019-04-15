@@ -8,7 +8,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    吒 | 吒
+    19面试清单（二） | 吒
   </title>
   <meta name="description" content="神话传说中，作为天地间的第一个声音的&#34;吒&#34;字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。">
   
@@ -130,20 +130,46 @@
     <i class="fa fa-user-o"></i>
     朴朴
 
-    <span class="post-date float-right" title="{{moment(1529049991000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1555332111000).format('MMM DD, YYYY, h:mm:ss A')}}">
       <i class="fa fa-pencil-square-o"></i>
-      {{moment(1529049991000).fromNow()}}
+      {{moment(1555332111000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>吒</h1>
-    <h2 id="吒"><a href="#吒" class="headerlink" title="吒"></a>吒</h2><p>神话传说中，作为天地间的第一个声音的”吒”字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。</p>
-<p>就像计算机中的传奇代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello world&quot;)</span><br></pre></td></tr></table></figure>
-<p>愿本站能像“吒”一样亘古长鸣…..</p>
+    <h1>19面试清单（二）</h1>
+    <blockquote>
+<p>19年4月15，继续走在找工作的路上！</p>
+</blockquote>
+<ol>
+<li><p><a href="https://www.cnblogs.com/zhehan54/p/6130030.html" target="_blank" rel="noopener">一道面试题：说说进程和线程的区别</a></p>
 <blockquote>
-<p>PS: 5412 为 unicode 编码表，“吒” 字对应的编码。</p>
+<ol>
+<li>进程是资源分配的最小单位，线程是程序执行的最小单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段、数据段、这种操作非常昂贵。而线程是共享进程中数据的，使用相同地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也要小很多。  </li>
+<li>线程之间通信更方便，同一进程共享全局变量、静态变量等数据，而进程之间需要以通信的方式（IPC）进行，不过如何处理好同步与互斥是编写多线程程序的难点。  </li>
+<li>但是多进程程序更加健壮，多线程程序只要有一个线程死掉，整个进程也就死掉了，而一个进程死掉不会对另一个造成影响，因为进程有自己的独立地址空间。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>杀死所有的php-cgi进程  </p>
+ <figure class="highlight plain"><figcaption><span>-s 9 `ps -aux | grep php-cgi | awk '&#123;print $2&#125;'` ``` [《linux下杀死进程的10种方法》](https://blog.csdn.net/myrainblues/article/details/19336995)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 查看 php-fpm  </span><br><span class="line">ps -ef|grep php  </span><br><span class="line">[《linux下查看php-fpm是否开启以及如何开启》](https://www.cnblogs.com/qk2014/p/8683493.html)</span><br><span class="line"></span><br><span class="line">1. 下面程序输出结果</span><br><span class="line">    ``` </span><br><span class="line">    &lt;?php</span><br><span class="line">        $num = 1;</span><br><span class="line">        function mutiple() &#123;</span><br><span class="line">            $num = $num * 10;</span><br><span class="line">        &#125;</span><br><span class="line">        mutiple();</span><br><span class="line">        echo $num;</span><br><span class="line">        function mutiple1($num) &#123;</span><br><span class="line">            $num = $num * 10;</span><br><span class="line">        &#125;</span><br><span class="line">        mutiple1($num);</span><br><span class="line">        echo $num;</span><br></pre></td></tr></table></figure>
+<p> 1, 1</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/jesssey/p/7751234.html" target="_blank" rel="noopener">面向对象与面向过程优缺点</a></p>
+<blockquote>
+<p>面向过程<br>优点：性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源，比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发，性能是最重要的因素。<br>缺点：没有面向对象易维护、易复用、易扩展。<br> 面向对象<br> 优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护。<br> 缺点：性能比面向过程低</p>
+</blockquote>
+</li>
+<li><p>设计模式好处及常规的设计模式  </p>
+<blockquote>
+<p>帮助我们将应用组织成容易了解，容易维护，具有弹性的架构，建立可维护的OO系统，要诀在于随时想到系统以后可能需要的变化以及应付变化的原则。  </p>
+</blockquote>
+<p> <a href="https://www.cnblogs.com/linkstar/p/7859980.html" target="_blank" rel="noopener">《你所学习的设计模式到底有什么用？到底怎么用？》</a></p>
+</li>
+</ol>
+<blockquote>
+<p>最困难的事情就是认识自己。<br>今天没打死我，明天爬起来继续面。</p>
 </blockquote>
 
   </article>
