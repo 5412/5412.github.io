@@ -1,538 +1,548 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>
-    吒
-  </title>
-  <meta name="description" content="神话传说中，作为天地间的第一个声音的&#34;吒&#34;字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。">
-  
-  <meta name="author" content="朴朴">
-
-  <meta http-equiv="Cache-Control" content="no-transform"/>
-  <meta http-equiv="Cache-Control" content="no-siteapp">
-  <meta name="theme-color" content="#1e2327">
-  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
-
-  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
   
 
   
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <title>吒</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="神话传说中，作为天地间的第一个声音的&quot;吒&quot;字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。">
+<meta name="keywords" content="5412, 吒, 程序猿, golang, php, hello world">
+<meta property="og:type" content="website">
+<meta property="og:title" content="吒">
+<meta property="og:url" content="http://5412.github.io/index.html">
+<meta property="og:site_name" content="吒">
+<meta property="og:description" content="神话传说中，作为天地间的第一个声音的&quot;吒&quot;字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="吒">
+<meta name="twitter:description" content="神话传说中，作为天地间的第一个声音的&quot;吒&quot;字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。">
+  
+    <link rel="alternate" href="/atom.xml" title="吒" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body id="replica-app">
-
-<nav class="navbar-wrapper">
-  <div class="navbar">
-    <div class="container clearfix">
-      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
-
-      <div class="navbar-search float-left desktop-only">
-        <div class="navbar-search-form">
-          <label for="gsc-i-id1">This website</label>
-          <div id="google-search">
-            <gcse:search></gcse:search>
-          </div>
-        </div>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">吒</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">吒，天地间的第一个声音！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://5412.github.io"></form>
       </div>
-
-      <ul class="navbar-nav float-left">
-        
-        <li><a href="/archives">Archives</a></li>
-        
-        
-        <li><a href="/categories">Categories</a></li>
-        
-        
-        <li><a href="/tags">Tags</a></li>
-        
-        
-        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
-        
-      </ul>
-
-      <ul class="navbar-nav user-nav float-right desktop-only">
-        <li class="user-nav-notification">
-          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
-        </li>
-        <li>
-          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
-        </li>
-        <li class="user-nav-logo">
-          <a><img src="https://avatars0.githubusercontent.com/u/13640248"> <i class="fa fa-caret-down"></i></i></a>
-        </li>
-      </ul>
     </div>
   </div>
-</nav>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-19年面试清单（三）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/25/19年面试清单（三）/" class="article-date">
+  <time datetime="2019-04-25T15:10:53.000Z" itemprop="datePublished">2019-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PHP面试/">PHP面试</a>
+  </div>
 
-<div class="main-container">
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/25/19年面试清单（三）/">19年面试清单（三）</a>
+    </h1>
   
 
-<div class="container-lg">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>mysql基础概念  mysql 主键 外键 索引 覆盖索引 数据库引擎 查询缓存</p>
+<ol>
+<li>主键：能够唯一标识表中某一行的属性或属性组。一个表只能有一个主键，但可以有多个候选索引。主键常常与外键构成参照完整性约束，防止出现数据不一致。主键可以保证记录的唯一和主键域非空,数据库管理系统对于主键自动生成唯一索引，所以主键也是一个特殊的索引。</li>
+<li>外键：是用于建立和加强两个表数据之间的链接的一列或多列。外键约束主要用来维护两个表之间数据的一致性。简言之，表的外键就是另一表的主键，外键将两表联系起来。一般情况下，要删除一张表中的主键必须首先要确保其它表中的没有相同外键（即该表中的主键没有一个外键和它相关联）。</li>
+<li>索引：是用来快速地寻找那些具有特定值的记录。主要是为了检索的方便，是为了加快访问速度， 按一定的规则创建的，一般起到排序作用。</li>
+<li>聚簇索引：聚簇索引并不是一种单独的索引类型，而是一种数据存储方式。具体的细节依赖于其实现方式，但innoddb 的聚簇索引实际上在同一个结构中保存了B-Tree索引和数据行。</li>
+<li>数据库引擎：数据库引擎是用于存储、处理和保护数据的核心服务。利用数据库引擎可控制访问权限并快速处理事务，从而满足企业内大多数需要处理大量数据的应用程序的要求。 使用数据库引擎创建用于联机事务处理或联机分析处理数据的关系数据库。这包括创建用于存储数据的表和用于查看、管理和保护数据安全的数据库对象（如索引、视图和存储过程）。</li>
+<li><p>查询缓存：Query Cache是用来缓存我们所执行的SELECT语句以及该语句的结果集，MySql在实现Query Cache的具体技术细节上类似典型的KV存储，就是将SELECT语句和该查询语句的结果集做了一个HASH映射并保存在一定的内存区域中。</p>
+<blockquote>
+<p>参考文献：<br><a href="https://www.cnblogs.com/DannyShi/p/4617469.html" target="_blank" rel="noopener">《MySQL数据库（主键、索引、外键、触发器…》）</a><br><a href="https://www.cnblogs.com/zhengyanqiu/p/4989955.html" target="_blank" rel="noopener">《MySQL 聚簇索引》）</a><br><a href="https://www.cnblogs.com/0201zcr/p/5296843.html" target="_blank" rel="noopener">《mysql 数据库引擎》）</a></p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://5412.github.io/2019/04/25/19年面试清单（三）/" data-id="cjuwt2ehh0000tnx30n2wvsww" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19年面试清单（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/15/19年面试清单（二）/" class="article-date">
+  <time datetime="2019-04-15T12:41:51.000Z" itemprop="datePublished">2019-04-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PHP面试/">PHP面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/15/19年面试清单（二）/">19年面试清单（二）</a>
+    </h1>
   
 
-<div class="blog-intro">
-  <div class="blog-intro-user">
-    <img class="avatar" src="https://avatars0.githubusercontent.com/u/13640248">
-    <div class="user-name">
-      <div class="blog-title">吒</div>
-      <div class="blog-author">朴朴</div>
-        <ul class="user-detail mobile-only">
+      </header>
     
-    <li>
-      <i class="fa fa-link"></i>
-      <a href="http://5412.github.io">http://5412.github.io</a>
-    </li>
-  </ul>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>19年4月15，继续走在找工作的路上！</p>
+</blockquote>
+<ol>
+<li><p><a href="https://www.cnblogs.com/zhehan54/p/6130030.html" target="_blank" rel="noopener">一道面试题：说说进程和线程的区别</a></p>
+<blockquote>
+<ol>
+<li>进程是资源分配的最小单位，线程是程序执行的最小单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段、数据段、这种操作非常昂贵。而线程是共享进程中数据的，使用相同地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也要小很多。  </li>
+<li>线程之间通信更方便，同一进程共享全局变量、静态变量等数据，而进程之间需要以通信的方式（IPC）进行，不过如何处理好同步与互斥是编写多线程程序的难点。  </li>
+<li>但是多进程程序更加健壮，多线程程序只要有一个线程死掉，整个进程也就死掉了，而一个进程死掉不会对另一个造成影响，因为进程有自己的独立地址空间。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>杀死所有的php-cgi进程  </p>
+ <figure class="highlight plain"><figcaption><span>-s 9 `ps -aux | grep php-cgi | awk '&#123;print $2&#125;'` ``` [《linux下杀死进程的10种方法》](https://blog.csdn.net/myrainblues/article/details/19336995)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 查看 php-fpm  </span><br><span class="line">ps -ef|grep php  </span><br><span class="line">[《linux下查看php-fpm是否开启以及如何开启》](https://www.cnblogs.com/qk2014/p/8683493.html)</span><br><span class="line"></span><br><span class="line">1. 下面程序输出结果</span><br><span class="line">    ``` </span><br><span class="line">    &lt;?php</span><br><span class="line">        $num = 1;</span><br><span class="line">        function mutiple() &#123;</span><br><span class="line">            $num = $num * 10;</span><br><span class="line">        &#125;</span><br><span class="line">        mutiple();</span><br><span class="line">        echo $num;</span><br><span class="line">        function mutiple1($num) &#123;</span><br><span class="line">            $num = $num * 10;</span><br><span class="line">        &#125;</span><br><span class="line">        mutiple1($num);</span><br><span class="line">        echo $num;</span><br></pre></td></tr></table></figure>
+<p> 1, 1</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/jesssey/p/7751234.html" target="_blank" rel="noopener">面向对象与面向过程优缺点</a></p>
+<blockquote>
+<p>面向过程<br>优点：性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源，比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发，性能是最重要的因素。<br>缺点：没有面向对象易维护、易复用、易扩展。<br> 面向对象<br> 优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护。<br> 缺点：性能比面向过程低</p>
+</blockquote>
+</li>
+<li><p>设计模式好处及常规的设计模式  </p>
+<blockquote>
+<p>帮助我们将应用组织成容易了解，容易维护，具有弹性的架构，建立可维护的OO系统，要诀在于随时想到系统以后可能需要的变化以及应付变化的原则。  </p>
+</blockquote>
+<p> <a href="https://www.cnblogs.com/linkstar/p/7859980.html" target="_blank" rel="noopener">《你所学习的设计模式到底有什么用？到底怎么用？》</a></p>
+</li>
+</ol>
+<blockquote>
+<p>最困难的事情就是认识自己。<br>今天没打死我，明天爬起来继续面。</p>
+</blockquote>
+
+      
     </div>
-    <div class="blog-description">
-      神话传说中，作为天地间的第一个声音的&#34;吒&#34;字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。
+    <footer class="article-footer">
+      <a data-url="http://5412.github.io/2019/04/15/19年面试清单（二）/" data-id="cjuwt2ehq0006tnx3lrrxwwym" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-19年面试清单（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/14/19年面试清单（一）/" class="article-date">
+  <time datetime="2019-04-14T12:55:48.000Z" itemprop="datePublished">2019-04-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/PHP面试/">PHP面试</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/14/19年面试清单（一）/">19年面试清单（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>19年3月28日，离开了工作3年的单位，4月11日开始了面试之旅，没想到的是今年找工作异常艰难。</p>
+</blockquote>
+<h5 id="普通题"><a href="#普通题" class="headerlink" title="普通题"></a>普通题</h5><ol>
+<li><p>echo count(strlen(“<a href="http://php.net&quot;)" target="_blank" rel="noopener">http://php.net&quot;)</a>)<br>遇见次数：2<br>手册解释：count传入非数组值会返回1，如果传入的值为NULL，返回0<br>php5.4 输出 1<br>php7.3 将会返回一个warning级别的错误，Parameter must be an array or an object that implements Countable.</p>
+</li>
+<li><p>PHP 加密方式<br>md5() crypt()   sha1() urlencode() base64_encode()</p>
+</li>
+<li><p>不使用第三个变量交换两个变量<br>出现次数： 1<br>方法一： 使用异或操作。<br>方法二： 使用list($a, $b) = array($a, $b), 注意php7 会改变$a, $b 顺序。<br>方法三： 字符串可以将两变量拼接后去截取。</p>
+</li>
+<li><p>shell 获取文件每行第三个元素  awk ‘{print $3}’ test”</p>
+</li>
+<li><p>shell 输出当前的pid<br>$$: 当前shell的pid<br>$!：上一个进程的pid<br>$?: 上个命令推出状态或函数返回值<br>$0: 当前进程名<br>$n: 传递给脚本第n参数<br>$#: 传递给脚本或本函数的参数个数<br>$*: 传给脚本的所有参</p>
+</li>
+</ol>
+<h5 id="程序题"><a href="#程序题" class="headerlink" title="程序题"></a>程序题</h5><ol>
+<li>遍历文件夹<br>出现次数：1   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    function myScanDir($filename) &#123;</span><br><span class="line">    $files = [];</span><br><span class="line">    if (is_dir($filename)) &#123;</span><br><span class="line">        $handle = opendir($filename);</span><br><span class="line">        while($file = readDir($handle)) &#123;</span><br><span class="line">            if (in_array($file, [&quot;.&quot;, &quot;..&quot;])) &#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            $chirldFilename = $filename . DIRECTORY_SEPARATOR . $file;</span><br><span class="line">            if (is_dir($chirldFilename)) &#123;</span><br><span class="line">                $files[$file] = myScanDir($chirldFilename);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                $files[] = $file;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        closedir($handle);</span><br><span class="line">    &#125;</span><br><span class="line">    return $files;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li>多进程同时读写一个文件<br>协同锁、LOCK_SH、LOCK_EX、LOCK_UN、LOCK_NB、  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function myWrite($filename, $output) &#123;</span><br><span class="line">    $handle = fopen($filename);</span><br><span class="line">    if(flock($handle, LOCK_EX)) &#123;</span><br><span class="line">        fwrite($handle, $output);</span><br><span class="line">        fflush($handle);</span><br><span class="line">        flock($handle, LOCK_UN);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new exception(&quot;文件被占用&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    fclose($handle);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="3">
+<li><a href="https://github.com/5412/php-story/blob/master/sort/bubble.php" target="_blank" rel="noopener">冒泡排序</a></li>
+<li><a href="https://blog.csdn.net/youyangyouni/article/details/80988852" target="_blank" rel="noopener">最近最少使用缓存失效策略算法实现 LRU</a></li>
+<li><p><a href="">内存256M， 10G文件排序实现 file sort</a></p>
+<h5 id="数据库题"><a href="#数据库题" class="headerlink" title="数据库题"></a>数据库题</h5></li>
+<li><p>mysql快速清空数据库<figure class="highlight plain"><figcaption><span>CONCAT('truncate TABLE ',table_schema,'.',TABLE_NAME, ';') from INFORMATION_SCHEMA.TABLES where  table_schema in ('数据库1','数据库2');``` 然后再替换替换。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1.  mysql 查找重复记录  </span><br><span class="line">假设表名user, 字段分别为id, username, email, 查询username重复的记录 </span><br><span class="line">方法一：``` select id,username,count(*) as counts from user group by username having counts &gt; 1;``` 可能会报错，5.7版本增加了对功能依赖的检测，select 的字段必须出现在 group by 中。  </span><br><span class="line">修改方法 ``` select @@global.sql_mode; set @@global.sql_mode = &quot;ONLY_FULL_GROUP_BY,....&quot;;``` 删除其中的 ONLY_FULL_GROUP_BY.或者设置my.ini  </span><br><span class="line">方法二：5.7 版本  </span><br><span class="line">查询重复字段： ``` select username from user GROUP BY username HAVING COUNT(*) &gt; 1;```  </span><br><span class="line">查询重复记录：```select * from user a where (select count(*) from user where username = a.username ) &gt; 1 order by  username; ```  </span><br><span class="line">过滤记录：``` select * from user where id in (Select min(id) From user Group By username);</span><br></pre></td></tr></table></figure></p>
+</li>
+<li><p>mysql 查学生各科分数前三<br>student_score{id,name,subject_id,score}  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># mysql 删除ONLY_FULL_GROUP_BY</span><br><span class="line">select a.user_id, a.subject_id,a.score from student_score a</span><br><span class="line">inner join student_score b on b.subject_id = a.subject_id and a.score &lt;= b.score</span><br><span class="line">group by a.user_id, a.subject_id</span><br><span class="line">having count(*) &lt;= 3</span><br><span class="line">order by a.score desc;</span><br><span class="line"></span><br><span class="line"># 兼容版本</span><br><span class="line">select c.* from student_score c inner join</span><br><span class="line">(select a.user_id, a.subject_id from student_score a </span><br><span class="line"> inner join student_score b on b.subject_id = a.subject_id and a.score &lt;= b.score</span><br><span class="line"> group by a.user_id, a.subject_id having count(*) &lt;= 3) as d </span><br><span class="line"> on c.user_id = d.user_id and c.subject_id = d.subject_id </span><br><span class="line"> order by c.subject_id,c.score;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库评论回复功能 详见CSDN某大神著作<a href="https://blog.csdn.net/ztchun/article/details/71106117" target="_blank" rel="noopener">《数据库设计——评论回复功能》</a></p>
+</li>
+</ol>
+<blockquote>
+<p>那些打不死我的，必将使我更加强大。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://5412.github.io/2019/04/14/19年面试清单（一）/" data-id="cjuwt2ehm0002tnx3jc5i3tfq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Go-Tips" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/19/Go-Tips/" class="article-date">
+  <time datetime="2018-12-19T03:51:30.000Z" itemprop="datePublished">2018-12-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/golang/">golang</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/19/Go-Tips/">Go-Tips</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><strong>数组长度是数组类型的一部分</strong>,eg:元素类型相同但是长度不同的两个数组不是同类型的。</li>
+<li>切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。</li>
+<li>map是一种<strong>无序</strong>的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型<strong>不能是数组、切片、map</strong>，其取值<strong>必须可以使用 == 判断</strong>；<strong>线程不安全</strong>，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量，如过使用var定义单不赋值，其值为nil且不可直接map[key] = value 进行赋值。</li>
+<li>原始类型的所有操作同样适用于自定义类型，可以使用显示的类型转换进行转换。</li>
+<li>结构体可以内嵌结构体，但是<strong>如果是其本身那么只能使用指针</strong>。</li>
+<li>方法的接受者只能是使用type定义的类型，方法名不能重复，方法名也不能同字段名重复。</li>
+<li>defer延迟执行，<strong>倒序</strong>，<strong>可能会影响函数最终返回</strong>。</li>
+<li>goroutine:在for循环中注意参数作用域，非缓冲channel程序必须同时存在接收和写入chan的goroutine.单向chan通常作为函数参数。</li>
+<li>切片也是<strong>并发不安全的</strong>。可考虑加锁，可使用sync.RWMutex来提高读的并发能力。</li>
+<li>file.Seek读并发不安全；file.ReadAt并发安全</li>
+<li>追加写入文件的方法：<br>使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func (f *File)Seek(offset int64, whence int)(ret int64, err)</span><br><span class="line">func (f *File) WreatAt([]byte, off int64)(n int, err)</span><br><span class="line">// 或以追加的方式打开直接写入</span><br><span class="line">f, err := os.OpenFile(filename, os.O_WRONLY | os.O_APPEND, 066)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>True liberty is to have power over oneself in all things.<br>真正的自由是在所有时候都能控制自己。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://5412.github.io/2018/12/19/Go-Tips/" data-id="cjuwt2ehr0007tnx31v6fq4dy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/golang/">golang</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-吒" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/15/吒/" class="article-date">
+  <time datetime="2018-06-15T08:06:31.000Z" itemprop="datePublished">2018-06-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂记/">杂记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/15/吒/">吒</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="吒"><a href="#吒" class="headerlink" title="吒"></a>吒</h2><p>神话传说中，作为天地间的第一个声音的”吒”字蕴含着天道至高无上的圣威，是万邪、诸恶的克星，有着不可匹敌的力量。</p>
+<p>就像计算机中的传奇代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&quot;hello world&quot;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>道可道，非常道。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://5412.github.io/2018/06/15/吒/" data-id="cjuwt2ehu000btnx36jd0a3uc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/15/hello-world/" class="article-date">
+  <time datetime="2018-06-15T07:24:14.497Z" itemprop="datePublished">2018-06-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/15/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://5412.github.io/2018/06/15/hello-world/" data-id="cjuwt2ehs0008tnx37zf49hd0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP面试/">PHP面试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/golang/">golang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂记/">杂记</a></li></ul>
     </div>
   </div>
 
-  <ul class="user-detail desktop-only">
-    
-    <li>
-      <i class="fa fa-link"></i>
-      <a href="http://5412.github.io">http://5412.github.io</a>
-    </li>
-  </ul>
 
-  <div class="social-media desktop-only">
-    <h4>Social Media</h4>
-    <ul>
-      
-      <li class="social-media-item"><a href="https://github.com/5412" target="_blank"><i class="fa fa-github"></i></a></li>
-      
-    </ul>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/golang/">golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
   </div>
-</div>
 
 
-  <div class="blog-detail">
+  
     
-<nav class="blog-detail-nav desktop-only">
-  <ul class="clearfix">
-    <li class="selected">
-      <a href="/">Overview</a></li>
-    <li class="">
-      <a href="/archives">Posts <span class="counter">6</span></a>
-    </li>
-    <li class="">
-      <a href="/categories">Categories <span
-                class="counter">3</span></a></li>
-    <li class="">
-      <a href="/tags">Tags <span class="counter">3</span></a></li>
-  </ul>
-</nav>
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/golang/" style="font-size: 10px;">golang</a> <a href="/tags/面试/" style="font-size: 20px;">面试</a>
+    </div>
+  </div>
 
-    <div class="body-secondary">
-      <p class="right-title">Recent post</p>
-      <ul class="recent-post clearfix">
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2019/04/25/19年面试清单（三）/">19年面试清单（三）</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-               
-  mysql基础概念  mysql 主键 外键 索引 覆盖索引 数据库引擎 查询缓存 
- 
- 
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/PHP面试/"><i class="fa fa-folder-open"></i> PHP面试</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 2 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2019/04/15/19年面试清单（二）/">19年面试清单（二）</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-               
- 19年4月15，继续走在找工作的路上！ 
- 
- 
-   一道面试题：说说进程和线程的区别  
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li></ul>
+    </div>
+  </div>
 
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/PHP面试/"><i class="fa fa-folder-open"></i> PHP面试</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 2 </span>
-            </p>
-          </div>
-        </li>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
         
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2019/04/14/19年面试清单（一）/">19年面试清单（一）</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-               
- 19年3月28日，离开了工作3年的单位，4月11日开始了面试之旅，没想到的是今年找工作异常艰难
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/PHP面试/"><i class="fa fa-folder-open"></i> PHP面试</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 2 </span>
-            </p>
-          </div>
-        </li>
+          <li>
+            <a href="/2019/04/25/19年面试清单（三）/">19年面试清单（三）</a>
+          </li>
         
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2018/12/19/Go-Tips/">Go-Tips</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-               
-  数组长度是数组类型的一部分 ,eg:元素类型相同但是长度不同的两个数组不是同类型的。 
- 切
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/golang/"><i class="fa fa-folder-open"></i> golang</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 1 </span>
-            </p>
-          </div>
-        </li>
+          <li>
+            <a href="/2019/04/15/19年面试清单（二）/">19年面试清单（二）</a>
+          </li>
         
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2018/06/15/吒/">吒</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                 吒  神话传说中，作为天地间的第一个声音的”吒”字蕴含着天道至高无上的圣威，是万邪、诸恶的克星
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/杂记/"><i class="fa fa-folder-open"></i> 杂记</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 0 </span>
-            </p>
-          </div>
-        </li>
+          <li>
+            <a href="/2019/04/14/19年面试清单（一）/">19年面试清单（一）</a>
+          </li>
         
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2018/06/15/hello-world/">Hello World</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-               Welcome to  Hexo ! This is your very first post. 
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <i class="fa fa-folder-open"></i> Uncategorized
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 0 </span>
-            </p>
-          </div>
-        </li>
+          <li>
+            <a href="/2018/12/19/Go-Tips/">Go-Tips</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/15/吒/">吒</a>
+          </li>
         
       </ul>
-      <div class="calendar-container" id="calendar">
-  <div class="calendar">
-    <h3>
-      {{posts.length}} contributions in the last year
-    </h3>
-    <div class="calendar-graph-container">
-      <div class="calendar-graph">
-        <svg width="676" height="104" @mouseout="mouseoverDate=null">
-          <g transform="translate(16, 20)">
-            <g v-for="week in calendar" :transform="week.transform">
-              <rect v-for="day in week.days"
-                    :x="day.x"
-                    :y="day.y"
-                    :fill="day.fill"
-                    @click="selectedDate=day.date"
-                    @mouseover="mouseoverDate=day.date"
-                    :class="{active:selectedDate===day.date}"
-                    data-count="{{day.posts.length}}"
-                    data-date="{{day.date}}"
-                    class="day" width="10" height="10"
-              ></rect>
-            </g>
+    </div>
+  </div>
 
-            <text v-for="month in monthLabels"
-                  :x="month.x"
-                  y="-5"
-                  class="month">{{month.text}}
-            </text>
-
-
-            <text text-anchor="start" class="wday" dx="-14" dy="8"
-                  style="display: none;">S
-            </text>
-            <text text-anchor="start" class="wday" dx="-14" dy="20">Mon</text>
-            <text text-anchor="start" class="wday" dx="-14" dy="32"
-                  style="display: none;">T
-            </text>
-            <text text-anchor="start" class="wday" dx="-14" dy="44">Wed</text>
-            <text text-anchor="start" class="wday" dx="-14" dy="57"
-                  style="display: none;">T
-            </text>
-            <text text-anchor="start" class="wday" dx="-14" dy="69">Fri</text>
-            <text text-anchor="start" class="wday" dx="-14" dy="81"
-                  style="display: none;">S
-            </text>
-          </g>
-        </svg>
-        <div class="svg-tip svg-tip-one-line"
-             v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
-          <strong>{{svgtip.text}}</strong> on
-          {{moment(mouseoverDate).format('MMM DD, YYYY')}}
-        </div>
+  
+</aside>
+        
       </div>
-      <div class="calendar-footer clearfix">
-      <span>
-        <a href="#">Learn how we count contributions.</a>
-      </span>
-        <div class="calendar-legend">
-          <span>Less</span>
-          <ul class="legend">
-            <li style="background-color: #eee"></li>
-            <li style="background-color: #d6e685"></li>
-            <li style="background-color: #8cc665"></li>
-            <li style="background-color: #44a340"></li>
-            <li style="background-color: #1e6823"></li>
-          </ul>
-          <span>More</span>
-        </div>
-      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 朴朴<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
-
-  <h3>Contribution activity</h3>
-  <div class="contribution-list">
-    <ul>
-      <li v-for="post in posts | filterBy selectedDate in 'date'">
-        <a href="{{post.url}}">{{post.title}}
-        </a>
-        <span>{{post.date}}</span>
-      </li>
-    </ul>
-  </div>
-</div>
-
-
-<script>
-  var posts = [{"date":"2018-06-15","title":"吒","url":"http://5412.github.io/2018/06/15/吒/"},{"date":"2018-06-15","title":"Hello World","url":"http://5412.github.io/2018/06/15/hello-world/"},{"date":"2018-12-19","title":"Go-Tips","url":"http://5412.github.io/2018/12/19/Go-Tips/"},{"date":"2019-04-14","title":"19年面试清单（一）","url":"http://5412.github.io/2019/04/14/19年面试清单（一）/"},{"date":"2019-04-15","title":"19年面试清单（二）","url":"http://5412.github.io/2019/04/15/19年面试清单（二）/"},{"date":"2019-04-25","title":"19年面试清单（三）","url":"http://5412.github.io/2019/04/25/19年面试清单（三）/"}];
-  var today = moment().format('YYYY-MM-DD');
-  var oneYearAgo = moment(today).subtract(1, 'years');
-  posts = posts.filter(function(post) {
-    return new Date(post.date) > oneYearAgo;
-  });
-  var monthLabels = [];
-  var monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  var calendar = getCalendar(posts);
-
-  var dateRange = {
-    start: moment(oneYearAgo).format('MMM D, YYYY'),
-    end: moment().format('MMM D, YYYY')
-  }
-
-  var app = new Vue({
-    el: '#calendar',
-    data: {
-      posts: posts,
-      selectedDate: null,
-      calendar: calendar,
-      dateRange: dateRange,
-      mouseoverDate: null,
-      moment: moment,
-      monthLabels: monthLabels
-    },
-    created: function() {
-      this.selectedDate = 'none';
-    },
-    methods: {},
-    computed: {
-      svgtip: function() {
-        var date = this.mouseoverDate;
-        var display = date ? 'block' : 'none';
-        if (date) {
-          var coordinator = getIndexByDate(date);
-          var x = coordinator[0];
-          var y = coordinator[1];
-          var len = this.calendar[x].days[y].posts.length;
-          var text = len ? len + ' contributions' : 'No contributions';
-          var left = coordinator[0] * 12 - 37 + 'px';
-          coordinator[1] = coordinator[0] ? coordinator[1] : coordinator[1] + oneYearAgo.day();
-          var top = coordinator[1] * 12 + 12 - 32 + 'px';
-        }
-        return {
-          text: text,
-          left: left,
-          top: top,
-          display: display
-        }
-      }
-    }
-  });
-
-  function getCalendar(posts) {
-    // raw calendar
-    var maxCount = 0;
-    var tmr = new Date();
-    tmr.setDate(tmr.getDate() + 1);
-    var tmrStr = tmr.toISOString().slice(0, 10);
-    var date = new Date();
-    date.setYear(date.getFullYear() - 1); // start date is a year ago;
-    var calendar = [];
-    while (date.toISOString().slice(0, 10) !== tmrStr) {
-      var day = date.getDay();
-      if (day === 0 || calendar.length === 0) {
-        var x = calendar.length * 13;
-        calendar.push({
-          transform: 'translate(' + x + ',0)',
-          days: []
-        })
-      }
-
-      calendar[calendar.length - 1].days.push({
-        x: 14 - calendar.length,
-        y: day * 12,
-        date: date.toISOString().slice(0, 10),
-        posts: []
-      });
-
-      if (day === 0 && date.getDate() < 8) {
-        monthLabels.push({
-          x: 14 - calendar.length + x,
-          text: monthName[date.getMonth() - 1]
-        })
-      }
-
-      date.setDate(date.getDate() + 1);
-    }
-
-    // handle post info
-    posts.forEach(function(post) {
-      var x = getIndexByDate(post.date)[0];
-      var y = getIndexByDate(post.date)[1];
-
-      calendar[x].days[y].posts.push({
-        title: post.title,
-        url: post.url
-      });
-
-      var len = calendar[x].days[y].posts.length;
-      maxCount = Math.max(len, maxCount);
-    })
-
-    // handle fill color
-    calendar.forEach(function(week) {
-      week.days.forEach(function(day) {
-        day.fill = getColorByLength(day.posts.length, maxCount);
-      })
-    })
-
-    return calendar;
-  }
-
-  function getIndexByDate(date) {
-    date = moment(date);
-    var firstColumnLen = 7 - oneYearAgo.day();
-    var days = date.diff(oneYearAgo, 'days');
-
-    var x = days > firstColumnLen - 1 ? Math.ceil((days - firstColumnLen + 1) / 7) : 0;
-    var y = days > firstColumnLen - 1 ? date.day() : date.day() - oneYearAgo.day();
-    return [x, y];
-  }
-
-  function getColorByLength(len, max) {
-    var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
-    var colorsLen = colors.length - 1;
-    var color = len ? colors[0] : colors[1];
-    var interval = max / colorsLen;
-    if (max < colorsLen) {
-      color = colors[len];
-    } else {
-      color = colors[Math.ceil(len / interval)];
-    }
-    return color;
-  }
-
-</script>
-
-
+</footer>
     </div>
-  </div>
-</div>
-
-</div>
-
-<div class="footer-wrapper container">
-  <footer class="footer clearfix">
-    <div class="clearfix">
-    <a href="http://5412.github.io" class="footer-logo">
-      <i class="fa fa-github"></i>
-    </a>
-    <ul class="footer-social-link">
-      <li>© 2019 朴朴</li>
-      <li><a href="http://5412.github.io">Home</a></li>
-      
-      <li><a href="https://github.com/5412">Github</a></li>
-      
-    </ul>
-    <div class="footer-theme-info">
-      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
-      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
-    </div>
-    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
     
-  </footer>
-</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
 
 
 
-
-<script src="/js/main.js"></script>
-
+  </div>
 </body>
 </html>
