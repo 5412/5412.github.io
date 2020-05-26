@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Go-Tips | 吒
+    The Twelve Factors App | 吒
   </title>
   <meta name="description" content="万邪、诸恶的克星。">
   
   <meta name="keywords" content="
-  GO
+  程序设计,12
   ">
   
   <meta name="author" content="朴朴">
@@ -130,30 +130,41 @@
     <i class="fa fa-user-o"></i>
     朴朴
 
-    <span class="post-date float-right" title="{{moment(1545191490000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1556715348000).format('MMM DD, YYYY, h:mm:ss A')}}">
       <i class="fa fa-pencil-square-o"></i>
-      {{moment(1545191490000).fromNow()}}
+      {{moment(1556715348000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>Go-Tips</h1>
-    <ol>
-<li><strong>数组长度是数组类型的一部分</strong>,eg:元素类型相同但是长度不同的两个数组不是同类型的。</li>
-<li>切片slice[0:n]共享底层数组，可以使用copy方法避免共享底层数组。</li>
-<li>map是一种<strong>无序</strong>的键值对，它是数据结构hash表的一种实现方式。要求作为key的类型<strong>不能是数组、切片、map</strong>，其取值<strong>必须可以使用 == 判断</strong>；<strong>线程不安全</strong>，必要时加锁或者使用sync.Map;使用make函数初始化的时候，可以设置初始容量，如过使用var定义单不赋值，其值为nil且不可直接map[key] = value 进行赋值。</li>
-<li>原始类型的所有操作同样适用于自定义类型，可以使用显示的类型转换进行转换。</li>
-<li>结构体可以内嵌结构体，但是<strong>如果是其本身那么只能使用指针</strong>。</li>
-<li>方法的接受者只能是使用type定义的类型，方法名不能重复，方法名也不能同字段名重复。</li>
-<li>defer延迟执行，<strong>倒序</strong>，<strong>可能会影响函数最终返回</strong>。</li>
-<li>goroutine:在for循环中注意参数作用域，非缓冲channel程序必须同时存在接收和写入chan的goroutine.单向chan通常作为函数参数。</li>
-<li>切片也是<strong>并发不安全的</strong>。可考虑加锁，可使用sync.RWMutex来提高读的并发能力。</li>
-<li>file.Seek读并发不安全；file.ReadAt并发安全</li>
-<li>追加写入文件的方法：<br>使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func (f *File)Seek(offset int64, whence int)(ret int64, err)</span><br><span class="line">func (f *File) WreatAt([]byte, off int64)(n int, err)</span><br><span class="line">// 或以追加的方式打开直接写入</span><br><span class="line">f, err := os.OpenFile(filename, os.O_WRONLY | os.O_APPEND, 066)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+    <h1>The Twelve Factors App</h1>
+    <h2 id="传送门-Twelve-Factor"><a href="#传送门-Twelve-Factor" class="headerlink" title="传送门 Twelve-Factor"></a>传送门 <a href="https://www.12factor.net/zh_cn/" target="_blank" rel="noopener">Twelve-Factor</a></h2><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>现代纪元，软件一般发布为一个服务，一般称为 web-apps 或着 saas. Twelve-Factors-App 是一种方法论  用来构建有如下特征的 SaaS:</p>
+<ul>
+<li>使用声明式格式实现安装自动化，以减少部署的时间与人力成本。</li>
+<li>与底层操作系统有一个干净的契约，在执行环境之间提供最大的可移植性；</li>
+<li>适合在现代云平台上部署，不需要服务器和系统管理；</li>
+<li>最大限度地减少开发环境和生产环境之间的差异，实现持续部署以获得最大的敏捷性</li>
+<li>可以在不需要对工具、架构或开发实践进行重大更改的情况下进行扩展。<br>十二因素方法可以应用于以任何编程语言编写的应用程序，这些应用程序可以使用任何后台服务（数据库、队列、内存缓存等）的组合。</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本文档的贡献者直接参与了数百个应用程序的开发和部署，并通过他们在Heroku平台上的工作间接见证了数十万个应用程序的开发、运行和扩展。</p>
+<p>本文档综合了我们在各种软件即服务应用程序方面的所有经验和观察结果。它是对应用程序开发的理想实践的三角剖分，特别关注随着时间的推移应用程序的有机增长的动态、开发程序代码库的开发人员之间的协作动态，以及避免软件侵蚀的成本。</p>
+<p>我们的动机是提高对我们在现代应用程序开发中看到的一些系统问题的认识，提供讨论这些问题的共享词汇表，并通过附带的术语为这些问题提供一组广泛的概念性解决方案。该格式的灵感来自Martin Fowler的《Patterns of Enterprise Application Architecture》和《Refactoring》。</p>
+<h2 id="谁应该读这个文档"><a href="#谁应该读这个文档" class="headerlink" title="谁应该读这个文档"></a>谁应该读这个文档</h2><p>任何构建作为服务运行的应用程序的开发人员。部署或管理此类应用程序的运维工程师。</p>
+<h2 id="1-基准代码"><a href="#1-基准代码" class="headerlink" title="1. 基准代码"></a>1. 基准代码</h2><blockquote>
+<p>一份在版本控制中被跟踪的基准代码，多份部署</p>
+</blockquote>
+<p>一个12个因素的应用程序总是在一个版本控制系统（如Git,Mercurial,Subversion）中被跟踪。一份用来跟踪代码所有修订版本的数据库的副本被称作代码库（code repository），通常缩写为 code repo 或仅 repo.</p>
+<p>基准代码是一个的 repo （集中式版本控制系统中，如 Subversion）或者 一组共享根提交的 repos (分布式版本控制系统，如 git).</p>
+<p>基准代码和应用程序之间始终存在一对一的关联：</p>
+<ul>
+<li>如果有多个基准代码，那么它就不是一个应用程序，而是一个分布式系统。分布式系统中的每个组件都是一个应用，每个组件都可以单独满足12-Factors。</li>
+<li>多个应用程序共享相同的代码是违反12-Factors原则的。这里的解决方案是将共享代码拆分成独立类库，通过依赖关系管理器(php composer, go mod, python gem, node npm)进行管理。</li>
+</ul>
+<p><img src="https://12factor.net/images/codebase-deploys.png" alt="codebase-deploys"></p>
+<p>每个应用程序只有一个基准代码，可以有多份部署。每个部署是基准代码的一个运行实例。这通常是一个生产环境站点，以及一个或多个预演站点。此外，每个开发人员都有一个在本地开发环境中运行的应用程序副本，每个副本都是一份部署。</p>
+<p>基准代码在所有部署中都是相同的，尽管每个部署中可能有使用不同的版本。例如，开发人员有一些提交尚未部署到预演版本的代码;预演环境有一些提交尚未部署到生产环境。但它们都共享相同的基准代码，因此可以识别为同一应用程序的不同部署。</p>
 <blockquote>
-<p>True liberty is to have power over oneself in all things.<br>真正的自由是在所有时候都能控制自己。</p>
+<p>未完待续…..</p>
 </blockquote>
 
   </article>
