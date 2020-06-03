@@ -129,19 +129,39 @@
     <li class="selected">
       <a href="/">Overview</a></li>
     <li class="">
-      <a href="/archives">Posts <span class="counter">4</span></a>
+      <a href="/archives">Posts <span class="counter">5</span></a>
     </li>
     <li class="">
       <a href="/categories">Categories <span
                 class="counter">3</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">5</span></a></li>
+      <a href="/tags">Tags <span class="counter">4</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <p class="right-title">Recent post</p>
       <ul class="recent-post clearfix">
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2020/06/03/MaxIdleConns &amp;&amp; MaxOpenConns/">MaxIdleConns &amp;&amp; MaxOpenConns</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+               Go 的 sql 包中 DB struct SetMaxIdleConns 与 SetMaxOpe
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/GO/"><i class="fa fa-folder-open"></i> GO</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 1 </span>
+            </p>
+          </div>
+        </li>
         
         <li class="recent-post-item">
           <div class="clearfix">
@@ -158,7 +178,7 @@
                   <a class="category-link" href="/categories/程序设计/"><i class="fa fa-folder-open"></i> 程序设计</a>
                 
               </span>
-              <span><i class="fa fa-tag"></i> 2 </span>
+              <span><i class="fa fa-tag"></i> 1 </span>
             </p>
           </div>
         </li>
@@ -316,7 +336,7 @@
 
 
 <script>
-  var posts = [];
+  var posts = [{"date":"2020-06-03","title":"MaxIdleConns && MaxOpenConns","url":"http://5412.github.io/2020/06/03/MaxIdleConns && MaxOpenConns/"}];
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {
