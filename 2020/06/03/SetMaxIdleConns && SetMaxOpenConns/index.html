@@ -8,7 +8,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    MaxIdleConns &amp;&amp; MaxOpenConns | 吒
+    SetMaxIdleConns &amp;&amp; SetMaxIdleConns | 吒
   </title>
   <meta name="description" content="万邪、诸恶的克星。">
   
@@ -137,7 +137,7 @@
   </h3>
 
   <article class="post-content">
-    <h1>MaxIdleConns &amp;&amp; MaxOpenConns</h1>
+    <h1>SetMaxIdleConns &amp;&amp; SetMaxIdleConns</h1>
     <p>Go 的 sql 包中 DB struct SetMaxIdleConns 与 SetMaxOpenConns 存在意义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// SetMaxOpenConns sets the maximum number of open connections to the database.</span><br><span class="line">//</span><br><span class="line">// If MaxIdleConns is greater than 0 and the new MaxOpenConns is less than</span><br><span class="line">// MaxIdleConns, then MaxIdleConns will be reduced to match the new</span><br><span class="line">// MaxOpenConns limit.</span><br><span class="line">//</span><br><span class="line">// If n &lt;= 0, then there is no limit on the number of open connections.</span><br><span class="line">// The default is 0 (unlimited).</span><br><span class="line">func (db *DB) SetMaxOpenConns(n int) &#123;&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// SetMaxIdleConns sets the maximum number of connections in the idle</span><br><span class="line">// connection pool.</span><br><span class="line">//</span><br><span class="line">// If MaxOpenConns is greater than 0 but less than the new MaxIdleConns,</span><br><span class="line">// then the new MaxIdleConns will be reduced to match the MaxOpenConns limit.</span><br><span class="line">//</span><br><span class="line">// If n &lt;= 0, no idle connections are retained.</span><br><span class="line">//</span><br><span class="line">// The default max idle connections is currently 2. This may change in</span><br><span class="line">// a future release.</span><br><span class="line">func (db *DB) SetMaxIdleConns(n int) &#123;&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://stackoverflow.com/questions/31952791/setmaxopenconns-and-setmaxidleconns" target="_blank" rel="noopener">传送门</a></p>
