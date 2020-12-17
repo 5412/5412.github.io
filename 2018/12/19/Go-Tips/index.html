@@ -8,7 +8,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Go-Tips | 吒
+    Go-Tips | 朴朴君的小窝
   </title>
   <meta name="description" content="万邪、诸恶的克星。">
   
@@ -90,7 +90,7 @@
         <a href="/archives" class="header-toolbar-left"><i
                   class="fa fa-file-text"></i> Posts </a>
         <a href="/archives"
-           class="header-toolbar-right"> 5 </a>
+           class="header-toolbar-right"> 6 </a>
       </li>
       <li>
         <a href="/tags" class="header-toolbar-left"><i
@@ -102,12 +102,12 @@
         <a href="/categories" class="header-toolbar-left"><i
                   class="fa fa-folder-open"></i> Categories </a>
         <a href="/categories"
-           class="header-toolbar-right"> 3 </a>
+           class="header-toolbar-right"> 4 </a>
       </li>
     </ul>
     <h2 class="header-title">
       <i class="fa fa-book text-muted"></i>
-      <a href="/">吒</a>
+      <a href="/">朴朴君的小窝</a>
       
       
     </h2>
@@ -149,11 +149,15 @@
 <li>goroutine:在for循环中注意参数作用域，非缓冲channel程序必须同时存在接收和写入chan的goroutine.单向chan通常作为函数参数。</li>
 <li>切片也是<strong>并发不安全的</strong>。可考虑加锁，可使用sync.RWMutex来提高读的并发能力。</li>
 <li>file.Seek读并发不安全；file.ReadAt并发安全</li>
-<li>追加写入文件的方法：<br>使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func (f *File)Seek(offset int64, whence int)(ret int64, err)</span><br><span class="line">func (f *File) WreatAt([]byte, off int64)(n int, err)</span><br><span class="line">// 或以追加的方式打开直接写入</span><br><span class="line">f, err := os.OpenFile(filename, os.O_WRONLY | os.O_APPEND, 066)</span><br></pre></td></tr></table></figure>
+<li><p>追加写入文件的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func (f *File)Seek(offset int64, whence int)(ret int64, err)</span><br><span class="line">func (f *File) WreatAt([]byte, off int64)(n int, err)</span><br><span class="line">// 或以追加的方式打开直接写入</span><br><span class="line">f, err := os.OpenFile(filename, os.O_WRONLY | os.O_APPEND, 066)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空结构体，同一字面量，地址相同 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   type Conn struct &#123;&#125;</span><br><span class="line">   c := Conn&#123;&#125;</span><br><span class="line">c1 := Conn&#123;&#125;</span><br><span class="line">   // 	fmt.Println(&amp;c == &amp;c1) // 单独取消注释：output:false， 两行一起取消注释 output:true</span><br><span class="line">   //  fmt.Printf(&quot;%p == %p \n&quot;, &amp;c, &amp;c1) //output: 0x11a8c30 == 0x11a8c30</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <blockquote>
-<p>True liberty is to have power over oneself in all things.<br>真正的自由是在所有时候都能控制自己。</p>
+<p>True liberty is to have power over oneself in all things.<br>真正的自由是在所有时候都能控制自己。<br>​</p>
 </blockquote>
 
   </article>
