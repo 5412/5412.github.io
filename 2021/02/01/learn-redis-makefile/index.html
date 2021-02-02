@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="make 命令简介make 命令格式：make [-f Makefile] [option] [target]    make 是一个解释 makefile 中指令的命令工具。make 工具最主要也是最基本的功能：就是通过 makefile文件 来描述源程序之间的相互关系并自动维护编译工作。而 makefile文件 需要按照某种语法进行编写，文件中需要说明如何编译各个源文件，并连接生成可执行文件，">
+<meta name="keywords" content="redis,makefile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习 redis -- Makefile 篇">
+<meta property="og:url" content="http://5412.github.io/2021/02/01/learn-redis-makefile/index.html">
+<meta property="og:site_name" content="No.5412 站">
+<meta property="og:description" content="make 命令简介make 命令格式：make [-f Makefile] [option] [target]    make 是一个解释 makefile 中指令的命令工具。make 工具最主要也是最基本的功能：就是通过 makefile文件 来描述源程序之间的相互关系并自动维护编译工作。而 makefile文件 需要按照某种语法进行编写，文件中需要说明如何编译各个源文件，并连接生成可执行文件，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-02-02T03:22:29.978Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习 redis -- Makefile 篇">
+<meta name="twitter:description" content="make 命令简介make 命令格式：make [-f Makefile] [option] [target]    make 是一个解释 makefile 中指令的命令工具。make 工具最主要也是最基本的功能：就是通过 makefile文件 来描述源程序之间的相互关系并自动维护编译工作。而 makefile文件 需要按照某种语法进行编写，文件中需要说明如何编译各个源文件，并连接生成可执行文件，">
+
+
+
+
+
+
+  <link rel="canonical" href="http://5412.github.io/2021/02/01/learn-redis-makefile/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>学习 redis -- Makefile 篇 | No.5412 站</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">No.5412 站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">吒</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://5412.github.io/2021/02/01/learn-redis-makefile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朴朴君">
+      <meta itemprop="description" content="万邪、诸恶的克星。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="No.5412 站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">学习 redis -- Makefile 篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-02-01 17:03:03" itemprop="dateCreated datePublished" datetime="2021-02-01T17:03:03+08:00">2021-02-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-02-02 11:22:29" itemprop="dateModified" datetime="2021-02-02T11:22:29+08:00">2021-02-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="make-命令简介"><a href="#make-命令简介" class="headerlink" title="make 命令简介"></a>make 命令简介</h2><p>make 命令格式：make [-f Makefile] [option] [target]  </p>
+<blockquote>
+<p>make 是一个解释 makefile 中指令的命令工具。make 工具最主要也是最基本的功能：就是通过 makefile文件 来描述源程序之间的相互关系并自动维护编译工作。而 makefile文件 需要按照某种语法进行编写，文件中需要说明如何编译各个源文件，并连接生成可执行文件，并要求定义源文件之间的依赖关系。</p>
+</blockquote>
+<h2 id="redis-中的-Makefile-使用"><a href="#redis-中的-Makefile-使用" class="headerlink" title="redis 中的 Makefile 使用"></a>redis 中的 Makefile 使用</h2><ol>
+<li><strong>$(MAKE)</strong> 代表 make 命令本身</li>
+<li><strong>.PHONY</strong> 伪指令, 用于处理 Makefile 所在目录有与自命令重名文件的问题</li>
+<li><strong>$@</strong> 代表 <del>命令传过来所有参数</del> makefile 中 $@ 与 bash 脚本中的含义不一样<ol>
+<li><strong>$@</strong> 表示规则中目标</li>
+<li><strong>$&lt;</strong> 表示规则中的第一个依赖条件</li>
+<li><strong>$^</strong> 表示规则中的所有依赖条件<blockquote>
+<p><del>1. test 1 2 3 4 5</del><br><del>2. $# 是传给脚本的参数个数 ps: 5</del><br><del>3. $0 是脚本本身的名字 ps: test</del><br><del>4. $1是传递给该shell脚本的第一个参数 ps: 1</del><br><del>5. $2是传递给该shell脚本的第二个参数 ps: 2</del><br><del>6. $@ 是传给脚本的所有参数的列表 参数独立看待 ps: for 循环可循环 5 次</del><br><del>7. $* 是传给脚本的所有参数的列表 所有参数整体看待 ps: “1 2 3 4 5”, for 循环循环 1 次</del>  </p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>版本号生成</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">GIT_SHA1=`(git show-ref --head --<span class="built_in">hash</span>=8 2&gt; /dev/null || <span class="built_in">echo</span> 00000000) | head -n1`</span><br><span class="line">GIT_DIRTY=`git diff --no-ext-diff 2&gt; /dev/null | wc -l`</span><br><span class="line">BUILD_ID=`uname -n`<span class="string">"-"</span>`date +%s`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行shell <figure class="highlight plain"><figcaption><span>:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    1. **:= $()** 赋值命令执行后的输出  </span><br><span class="line">    2. **/dev/null** 一个特殊的设备文件，这个文件接收到任何数据都会被丢弃  </span><br><span class="line">    3. **2&gt;/dev/null** 将标准错误的输出重定向到 /dev/null, 此处意在不输出标准错误信息, 如shell脚本失败, 只输出 not  </span><br><span class="line">    4. Linux 系统预留了三个文件描述符  </span><br><span class="line">        1. **0** 标准输入 stdin</span><br><span class="line">        2. **1** 标准输出 stdout</span><br><span class="line">        3. **2** 标准错误 stderr</span><br><span class="line">6. Makefile 赋值操作</span><br><span class="line">    1. **=** 是最基本的赋值 make会将整个makefile展开后，再决定变量的值。也就是说，变量的值将会是整个makefile中最后被指定的值</span><br><span class="line">    2. **:=** 是覆盖之前的值 变量的值决定于它在makefile中的位置，而不是整个makefile展开后的最终值</span><br><span class="line">    3. **?=** 是如果没有被赋值过就赋予等号后面的值</span><br><span class="line">    4. **+=** 是添加等号后面的值</span><br><span class="line">7. Makefile 中的 if 语句 及函数调用</span><br><span class="line"></span><br><span class="line">    ```makefile</span><br><span class="line">    STD=-pedantic -DREDIS_STATIC=&apos;&apos;</span><br><span class="line">    ifneq (,$(findstring clang,$(CC)))</span><br><span class="line">        ifneq (,$(findstring FreeBSD,$(uname_S)))</span><br><span class="line">            STD+=-Wno-c11-extensions</span><br><span class="line">        endif</span><br><span class="line">    endif</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
+            <a href="/tags/makefile/" rel="tag"># makefile</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/17/每日一记-20201217/" rel="next" title="每日一记-20201217">
+                <i class="fa fa-chevron-left"></i> 每日一记-20201217
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">朴朴君</p>
+              <p class="site-description motion-element" itemprop="description">万邪、诸恶的克星。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/5412" target="_blank" title="github"><i class="fa fa-fw fa-globe"></i>github</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/5412" target="_blank" title="weibo"><i class="fa fa-fw fa-globe"></i>weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/5412" target="_blank" title="linkedin"><i class="fa fa-fw fa-globe"></i>linkedin</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#make-命令简介"><span class="nav-number">1.</span> <span class="nav-text">make 命令简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-中的-Makefile-使用"><span class="nav-number">2.</span> <span class="nav-text">redis 中的 Makefile 使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朴朴君</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
