@@ -348,7 +348,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-02-02 11:22:29" itemprop="dateModified" datetime="2021-02-02T11:22:29+08:00">2021-02-02</time>
+                <time title="修改时间：2021-02-03 10:53:39" itemprop="dateModified" datetime="2021-02-03T10:53:39+08:00">2021-02-03</time>
               
             
           </span>
@@ -421,6 +421,59 @@
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">GIT_SHA1=`(git show-ref --head --<span class="built_in">hash</span>=8 2&gt; /dev/null || <span class="built_in">echo</span> 00000000) | head -n1`</span><br><span class="line">GIT_DIRTY=`git diff --no-ext-diff 2&gt; /dev/null | wc -l`</span><br><span class="line">BUILD_ID=`uname -n`<span class="string">"-"</span>`date +%s`</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行shell <figure class="highlight plain"><figcaption><span>:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    1. **:= $()** 赋值命令执行后的输出  </span><br><span class="line">    2. **/dev/null** 一个特殊的设备文件，这个文件接收到任何数据都会被丢弃  </span><br><span class="line">    3. **2&gt;/dev/null** 将标准错误的输出重定向到 /dev/null, 此处意在不输出标准错误信息, 如shell脚本失败, 只输出 not  </span><br><span class="line">    4. Linux 系统预留了三个文件描述符  </span><br><span class="line">        1. **0** 标准输入 stdin</span><br><span class="line">        2. **1** 标准输出 stdout</span><br><span class="line">        3. **2** 标准错误 stderr</span><br><span class="line">6. Makefile 赋值操作</span><br><span class="line">    1. **=** 是最基本的赋值 make会将整个makefile展开后，再决定变量的值。也就是说，变量的值将会是整个makefile中最后被指定的值</span><br><span class="line">    2. **:=** 是覆盖之前的值 变量的值决定于它在makefile中的位置，而不是整个makefile展开后的最终值</span><br><span class="line">    3. **?=** 是如果没有被赋值过就赋予等号后面的值</span><br><span class="line">    4. **+=** 是添加等号后面的值</span><br><span class="line">7. Makefile 中的 if 语句 及函数调用</span><br><span class="line"></span><br><span class="line">    ```makefile</span><br><span class="line">    STD=-pedantic -DREDIS_STATIC=&apos;&apos;</span><br><span class="line">    ifneq (,$(findstring clang,$(CC)))</span><br><span class="line">        ifneq (,$(findstring FreeBSD,$(uname_S)))</span><br><span class="line">            STD+=-Wno-c11-extensions</span><br><span class="line">        endif</span><br><span class="line">    endif</span><br></pre></td></tr></table></figure></p>
+</li>
+</ol>
+<h2 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h2><ol>
+<li>Makefile 规则<blockquote>
+<p>targets … : prerequisites …<br>[table]  command  </p>
+<pre><code>...  
+...  
+</code></pre></blockquote>
+</li>
+<li>预定义变量<br> |预定义变量|含义|<br> |——–|—|<br> |$* |不包含扩展名的目标文件名称|<br> |$+ |所有的依赖文件，以空格分开，并以出现的先后为序，可能包含重复的依赖文件|<br> |$&lt; |第一个依赖文件的名称|<br> |$? |所有的依赖文件，以空格分开，这些依赖文件的修改日期比目标的创建日期晚|<br> |$@ |目标的完整名称|<br> |$^ |所有的依赖文件，以空格分开，不包含重复的依赖文件|<br> |$% |如果目标是归档成员，则该变量表示目标的归档成员名称。例如，如果目标名称为 mytarget.so(image.o)，则 $@ 为 mytarget.so，而 $% 为 image.o|<br> |AR |归档维护程序的名称，默认值为 ar|<br> |ARFLAGS |归档维护程序的选项|<br> |AS |汇编程序的名称，默认值为 as|<br> |ASFLAGS |汇编程序的选项|<br> |CC |C 编译器的名称，默认值为 cc|<br> |CCFLAGS |C 编译器的选项|<br> |CPP |C 预编译器的名称，默认值为 $(CC) -E|<br> |CPPFLAGS |C 预编译的选项|<br> |CXX |C++ 编译器的名称，默认值为 g++|<br> |CXXFLAGS |C++ 编译器的选项|</li>
+<li>命令行选项<br> |命令行选项|含义|<br> |——–|—|<br> |-C DIR |在读取 makefile 之前改变到指定的目录 DIR|<br> |-f FILE|以指定的 FILE 文件作为 makefile|<br> |-i |忽略所有的命令执行错误|<br> |-I DIR |当包含其他 makefile 文件时，可利用该选项指定搜索目录|<br> |-n |只打印要执行的命令，但不执行这些命令|<br> |-p |显示 make 变量数据库和隐含规则|<br> |-s |在执行命令时不显示命令|<br> |-w |在处理 makefile 之前和之后，显示工作目录|<br> |-W FILE |假定文件 FILE 已经被修改|</li>
+<li>make 工作流程<ol>
+<li>make会在当前目录下找名字叫 Makefile 或 makefile 的文件</li>
+<li>如果找到，它会找文件中的第一个目标文件（target），并把它作为最终的目标文件</li>
+<li>递归 target 的 prerequisites, 如果不存在或者其所依赖更新, 执行对应的 command 生成自己</li>
+<li>如果 target 文件不存在，或所依赖的文件更新，执行 command 生成 target</li>
+</ol>
+</li>
+<li>make 命令执行步骤<ol>
+<li>读入所有的 Makefile</li>
+<li>读入被 include 的其它 Makefile</li>
+<li>初始化文件中的变量</li>
+<li>推导隐晦规则，并分析所有规则</li>
+<li>为所有的目标文件创建依赖关系链</li>
+<li>根据依赖关系，决定哪些目标要重新生成</li>
+<li>执行生成命令</li>
+</ol>
+</li>
+<li>文件搜索 VPATH <code>vpath %.h ../headers</code><blockquote>
+<p>如果没有指明这个变量，make只会在当前的目录中去找寻依赖文件和目标文件。如果定义了这个变量，那么，make就会在当前目录找不到的情况下，到所指定的目录中去找寻文件了。</p>
+<ol>
+<li>vpath pattern directories, 为符合模式 pattern 的文件指定搜索目录 directories</li>
+<li>vpath pattern 清除符合模式 pattern 的文件的搜索目录</li>
+<li>vpath 清除所有已被设置好了的文件搜索目录</li>
+</ol>
+</blockquote>
+</li>
+<li><p>命令执行</p>
+<ol>
+<li>@ 不输出命令</li>
+<li>- 忽略错误继续执行</li>
+<li><p>定义命令包</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">define customCommand</span><br><span class="line">command</span><br><span class="line">command...</span><br><span class="line">endef</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>函数</p>
+<ol>
+<li>使用方式 $(function arguments)</li>
+<li>字符串操作函数列表 (待完善)</li>
+<li>文件操作函数列表 (待完善)</li>
+<li>命令函数调用方式 <code>$(shell command args)</code></li>
+</ol>
 </li>
 </ol>
 
