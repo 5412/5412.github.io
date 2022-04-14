@@ -285,6 +285,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://5412.github.io/2022/04/14/mac系统通过docker搭建kafka环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="朴朴君">
+      <meta itemprop="description" content="万邪、诸恶的克星。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="No.5412 站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/04/14/mac系统通过docker搭建kafka环境/" itemprop="url">
+                  mac系统通过docker搭建kafka环境
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2022-04-14 10:49:20 / 修改时间：11:29:39" itemprop="dateCreated datePublished" datetime="2022-04-14T10:49:20+08:00">2022-04-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本地开发任务需要启动个 kafka 环境, 模拟测试</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ol>
+<li>MacOS</li>
+<li>Docker Desktop Version 4.6.1</li>
+<li>HOST_IP=宿主机网络IP | 个别情况可以使用 host.docker.internal</li>
+<li>KAFKA_TOPIC=xxxxxxx</li>
+<li>KAFKA_GROUP=xxxxxxx</li>
+</ol>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>启动 zookeeper</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kafka docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 kafka</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name kafka --link zookeeper -p 9092:9092 \</span><br><span class="line">-e KAFKA_BROKER_ID=0 \</span><br><span class="line">-e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 \</span><br><span class="line">-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://<span class="variable">$&#123;HOST_IP&#125;</span>:9092 \</span><br><span class="line">-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \</span><br><span class="line">-t wurstmeister/kafka</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 topic</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm wurstmeister/kafka kafka-topics.sh --create \</span><br><span class="line">--zookeeper <span class="variable">$&#123;HOST_IP&#125;</span>:2181 \</span><br><span class="line">--partitions 1 \</span><br><span class="line">--replication-factor 1 \</span><br><span class="line">--topic <span class="variable">$&#123;KAFKA_TOPIC&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 consumer</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm wurstmeister/kafka kafka-console-consumer.sh \</span><br><span class="line">--bootstrap-server <span class="variable">$&#123;HOST_IP&#125;</span>:9092 \</span><br><span class="line">--topic <span class="variable">$&#123;KAFKA_TOPIC&#125;</span> \</span><br><span class="line">--group <span class="variable">$&#123;KAFKA_GROUP&#125;</span> \</span><br><span class="line">--from-beginning</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm wurstmeister/kafka kafka-console-consumer.sh \</span><br><span class="line">--bootstrap-server <span class="variable">$&#123;HOST_IP&#125;</span>:9092 \</span><br><span class="line">--topic <span class="variable">$&#123;KAFKA_TOPIC&#125;</span> \</span><br><span class="line">--offset earliest \</span><br><span class="line">--max-messages 10 \</span><br><span class="line">--partition 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 producer</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm wurstmeister/kafka kafka-console-producer.sh \</span><br><span class="line">--bootstrap-server <span class="variable">$&#123;HOST_IP&#125;</span>:9092 \</span><br><span class="line">--topic <span class="variable">$&#123;KAFKA_TOPIC&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看 group 状态</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm  wurstmeister/kafka kafka-consumer-groups.sh \</span><br><span class="line">--describe \</span><br><span class="line">--bootstrap-server <span class="variable">$&#123;HOST_IP&#125;</span>:9092 \</span><br><span class="line">--group <span class="variable">$&#123;KAFKA_GROUP&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://5412.github.io/2022/04/08/C 语言重学之旅/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -331,7 +499,7 @@
                 
               
 
-              <time title="创建时间：2022-04-08 20:55:48 / 修改时间：11:16:09" itemprop="dateCreated datePublished" datetime="2022-04-08T20:55:48+08:00">2022-04-08</time>
+              <time title="创建时间：2022-04-08 20:55:48 / 修改时间：13:47:48" itemprop="dateCreated datePublished" datetime="2022-04-08T20:55:48+08:00">2022-04-08</time>
             
 
             
@@ -406,7 +574,10 @@
 <li>const void * 万能不可修改数据指针</li>
 <li>size_t,全称应该是size type，就是说“一种用来记录大小的数据类型”, 一种“整型”类型, 不同平台的size_t会用不同的类型实现, 使用size_t而非int或unsigned可以写出扩展行更好的代码, 即是为了提供一种可移植的代码形式.</li>
 </ol>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><ol>
+<li>void <em>memset(void </em>s, int ch, size_t n); 将s中当前位置后面的n个字节 （typedef unsigned int size_t ）用 ch 替换并返回 s .</li>
+</ol>
+
           
         
       
@@ -1987,7 +2158,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2026,8 +2197,6 @@
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
                     
-                    
-                      
                     
                       
                     
