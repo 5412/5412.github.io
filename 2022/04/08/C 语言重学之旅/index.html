@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="变量 变量: 其实只不过是程序可操作的存储区的名称. 类型: 变量存储的大小和布局 变量定义: 就是告诉编译器在何处创建变量的存储，以及如何创建变量的存储。 常量: #define 预处理器, 复制多份, const 直接定义一份  类型 const void * 万能不可修改数据指针 size_t,全称应该是size type，就是说“一种用来记录大小的数据类型”, 一种“整型”类型, 不同平台">
-<meta name="keywords" content="C,程序编程,redis">
+  <meta name="description" content="变量 变量: 其实只不过是程序可操作的存储区的名称. 类型: 变量存储的大小和布局 变量定义: 就是告诉编译器在何处创建变量的存储，以及如何创建变量的存储。 常量: #define 预处理器, 复制多份, const 直接定义一份 变量存储位置: 栈: 用来做函数调用, 参数传递等, 程序运行过程中操作最频繁的数据区. 全局静态区: 变量一直存在于内存, 整个运行中不会被销毁. 堆: 由操作系统维">
+<meta name="keywords" content="redis,C,程序编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C 语言重学之旅 - 从 redis 中学习 C 语言">
 <meta property="og:url" content="http://5412.github.io/2022/04/08/C 语言重学之旅/index.html">
 <meta property="og:site_name" content="No.5412 站">
-<meta property="og:description" content="变量 变量: 其实只不过是程序可操作的存储区的名称. 类型: 变量存储的大小和布局 变量定义: 就是告诉编译器在何处创建变量的存储，以及如何创建变量的存储。 常量: #define 预处理器, 复制多份, const 直接定义一份  类型 const void * 万能不可修改数据指针 size_t,全称应该是size type，就是说“一种用来记录大小的数据类型”, 一种“整型”类型, 不同平台">
+<meta property="og:description" content="变量 变量: 其实只不过是程序可操作的存储区的名称. 类型: 变量存储的大小和布局 变量定义: 就是告诉编译器在何处创建变量的存储，以及如何创建变量的存储。 常量: #define 预处理器, 复制多份, const 直接定义一份 变量存储位置: 栈: 用来做函数调用, 参数传递等, 程序运行过程中操作最频繁的数据区. 全局静态区: 变量一直存在于内存, 整个运行中不会被销毁. 堆: 由操作系统维">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-04-08T05:47:48.997Z">
+<meta property="og:updated_time" content="2022-05-16T02:50:01.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C 语言重学之旅 - 从 redis 中学习 C 语言">
-<meta name="twitter:description" content="变量 变量: 其实只不过是程序可操作的存储区的名称. 类型: 变量存储的大小和布局 变量定义: 就是告诉编译器在何处创建变量的存储，以及如何创建变量的存储。 常量: #define 预处理器, 复制多份, const 直接定义一份  类型 const void * 万能不可修改数据指针 size_t,全称应该是size type，就是说“一种用来记录大小的数据类型”, 一种“整型”类型, 不同平台">
+<meta name="twitter:description" content="变量 变量: 其实只不过是程序可操作的存储区的名称. 类型: 变量存储的大小和布局 变量定义: 就是告诉编译器在何处创建变量的存储，以及如何创建变量的存储。 常量: #define 预处理器, 复制多份, const 直接定义一份 变量存储位置: 栈: 用来做函数调用, 参数传递等, 程序运行过程中操作最频繁的数据区. 全局静态区: 变量一直存在于内存, 整个运行中不会被销毁. 堆: 由操作系统维">
 
 
 
@@ -327,12 +327,24 @@
                 
               
 
-              <time title="创建时间：2022-04-08 20:55:48 / 修改时间：13:47:48" itemprop="dateCreated datePublished" datetime="2022-04-08T20:55:48+08:00">2022-04-08</time>
+              <time title="创建时间：2022-04-08 20:55:48" itemprop="dateCreated datePublished" datetime="2022-04-08T20:55:48+08:00">2022-04-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-05-16 10:50:01" itemprop="dateModified" datetime="2022-05-16T10:50:01+08:00">2022-05-16</time>
               
             
           </span>
@@ -395,13 +407,119 @@
 <li>类型: 变量存储的大小和布局</li>
 <li>变量定义: 就是告诉编译器在何处创建变量的存储，以及如何创建变量的存储。</li>
 <li>常量: #define 预处理器, 复制多份, const 直接定义一份</li>
+<li>变量存储位置:<ol>
+<li>栈: 用来做函数调用, 参数传递等, 程序运行过程中操作最频繁的数据区.</li>
+<li>全局静态区: 变量一直存在于内存, 整个运行中不会被销毁.</li>
+<li>堆: 由操作系统维护的大空间伸缩区, 在程序运行中动态申请</li>
+</ol>
+</li>
 </ol>
 <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><ol>
 <li>const void * 万能不可修改数据指针</li>
 <li>size_t,全称应该是size type，就是说“一种用来记录大小的数据类型”, 一种“整型”类型, 不同平台的size_t会用不同的类型实现, 使用size_t而非int或unsigned可以写出扩展行更好的代码, 即是为了提供一种可移植的代码形式.</li>
 </ol>
+<h1 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h1><ol>
+<li>static<ol>
+<li>修饰局部变量时: 变量存储在全局静态区, 作用域局部</li>
+<li>修饰全局变量时: 限定作用域为本文件可见</li>
+<li>修饰函数时: 限定作用域为本文件</li>
+</ol>
+</li>
+</ol>
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><ol>
 <li>void <em>memset(void </em>s, int ch, size_t n); 将s中当前位置后面的n个字节 （typedef unsigned int size_t ）用 ch 替换并返回 s .</li>
+</ol>
+<h1 id="编译器特性"><a href="#编译器特性" class="headerlink" title="编译器特性"></a>编译器特性</h1><ol>
+<li>gcc -g main.c 在编译的时候，产生调试信息。</li>
+<li>gcc -E main.c &gt; main.s, 只激活预处理</li>
+<li>gcc -S main.c 只激活预处理和汇编, 产生汇编代码</li>
+<li>gcc -c main.c 只激活预处理,编译,和汇编,也就是他只把程序做成obj文件</li>
+<li><strong>attribute</strong>((packed)) 取消结构体在编译过程中的优化对齐，按尽可能小的size对齐——也就是按1字节为单位对齐</li>
+</ol>
+<h1 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h1><ol>
+<li>libc<ol>
+<li><code>void *memmove( void* dest, const void* src, size_t count );</code> 拷贝字节, 保证源串在被覆盖之前将重叠区域的字节拷贝到目标区域中.</li>
+<li><code>void    *calloc(size_t __count, size_t __size) __result_use_check __alloc_size(1,2);</code> 批量分配内存 <strong>size * </strong>size, 并自动初始化为0</li>
+<li><code>void    *malloc(size_t __size) __result_use_check __alloc_size(1);</code> 分配内存, 不初始化数据</li>
+<li><code>int snprintf(char* dest_str,size_t size,const char* format,...);</code> 将可变参数 “…” 按照format的格式格式化为字符串，然后再将其拷贝至str中。</li>
+</ol>
+</li>
+<li>&lt;sys/time.h&gt;, 系统时间相关库<ol>
+<li><code>timeval {tv_sec, tv_usec}</code> 秒和纳秒时间戳</li>
+<li><code>timezone {tz_minuteswest, tz_dsttime}</code> 时区</li>
+<li><code>int gettimeofday(struct timeval *tv, struct timezone *tz)</code>; 获取当前时间戳</li>
+</ol>
+</li>
+<li>&lt;sys/termios.h&gt;, 终端相关库<ol>
+<li><code>int     tcgetattr(int, struct termios *);</code> 获取终端参数</li>
+</ol>
+</li>
+<li>&lt;sys/ioctl.h&gt;, input/output control<ol>
+<li><code>int     ioctl(int, unsigned long, ...);</code> 专用于设备输入输出操作的系统调用,该调用传入一个跟设备有关的请求码，系统调用的功能完全取决于请求码。</li>
+</ol>
+</li>
+<li>&lt;sys/fcntl.h&gt;, 通过文件描述符, 操作稳健<ol>
+<li><code>int     fcntl(int, int, ...) __DARWIN_ALIAS_C(fcntl);</code>, 获取\设置文件 flag, 锁等</li>
+</ol>
+</li>
+<li>&lt;sys/socket.h&gt;<ol>
+<li><code>SOCKET PASCAL FAR socket( int af, int type, int protocol);</code> 创建套接字<ol>
+<li>af 地址描述</li>
+<li>type 类型描述</li>
+<li>protocol 所用协议</li>
+</ol>
+</li>
+<li><code>int connect(SOCKET s, const struct sockaddr * name, int namelen);</code> 建立套接字链接</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li>&lt;unistd.h&gt;<ol>
+<li><code>int isatty(int handle);</code> 检查给定的设备类型, 普通文件  返回 0 ，设备  返回 -1</li>
+<li><code>ssize_t     write(int __fd, const void * __buf, size_t __nbyte) __DARWIN_ALIAS_C(write);</code> 写入数据</li>
+<li><code>ssize_t     read(int, void *, size_t) __DARWIN_ALIAS_C(read);</code> 读取数据</li>
+<li><code>pid_t     getpid(void);</code> 获取进程 ID</li>
+</ol>
+</li>
+<li>&lt;stdio.h&gt;<ol>
+<li><code>int    fileno(FILE *);</code> 返回文件描述符</li>
+</ol>
+</li>
+<li>&lt;stdlib.h&gt;<ol>
+<li><code>char    *getenv(const char *);</code> 获取 env 值</li>
+<li><code>long long strtoll(const char *__str, char **__endptr, int __base);</code> 字符串转 long long</li>
+<li><code>int     atoi(const char *);</code> 字符串转数字. 按十进制理解字符串.</li>
+<li><code>double     atof(const char *);</code> 字符串转 double.</li>
+<li><code>int     atexit(void (* _Nonnull)(void));</code>  用来注册执行exit()函数前执行的终止处理程序.</li>
+</ol>
+</li>
+<li>&lt;string.h&gt;<ol>
+<li><code>int strcmp(const char *__s1, const char *__s2);</code> 两个字符串比较, s1 &lt; s2 =&gt;  &lt; 0, s1 &gt; s2  =&gt; &gt;0, s1 = s2 =&gt; 0</li>
+<li><code>int     strncasecmp(const char *, const char *, size_t);</code> 不区分大小写比较前n个字符</li>
+<li><code>const char* strchr(const char* __s, int __c)</code> 返回字符在字符串中第一次出现的位置, 没又返回一个NULL 指针</li>
+<li><code>char    *strdup(const char *__s1);</code> 字符串拷贝函数</li>
+</ol>
+</li>
+<li>&lt;sys/signal.h&gt;<ol>
+<li><code>void(*signal(int, void (*)(int)))(int);</code> 系统信号处理函数, 第一个参数signum：指明了所要处理的信号类型，它可以取除了SIGKILL和SIGSTOP外的任何一种信号。第二个参数handler：描述了与信号关联的动作，它可以取以下三种值：<ol>
+<li>SIG_IGN: 忽略该信号</li>
+<li>SIG_DFL: 恢复对信号的系统默认处理。不写此处理函数默认也是执行系统默认操作</li>
+<li>sighandler_t类型的函数指针</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>&lt;netdb.h&gt;<ol>
+<li>int getaddrinfo( const char <em>hostname, const char </em>service, const struct addrinfo *hints, struct addrinfo **result );<ol>
+<li>hostname: 一个主机名或者地址串( IPv4 点分十进制串或者 IPv6 的16进制串)</li>
+<li>service: 服务名, 十进制端口号, 也可以是已定义的服务名称, 如 ftp\http</li>
+<li>hints: 一个空指针或者 addrinfo 结构体的指针, 填入关于期望返回的信息类型暗示, 例如将 ai_sockettype 设置为 SOCK_DGRAM 使得返回仅仅适用于数据报套接口的信息.</li>
+<li>result: 本函数通过 result指针返回一个指向 addrinfo 结构体链表的指针</li>
+<li>返回值: 0 –成功, 非 0 –出错</li>
+</ol>
+</li>
+</ol>
+</li>
 </ol>
 
       
@@ -423,11 +541,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
             <a href="/tags/C/" rel="tag"># C</a>
           
             <a href="/tags/程序编程/" rel="tag"># 程序编程</a>
-          
-            <a href="/tags/redis/" rel="tag"># redis</a>
           
         </div>
       
@@ -526,7 +644,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -553,7 +671,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -582,7 +702,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -637,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型"><span class="nav-number">2.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型"><span class="nav-number">2.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修饰符"><span class="nav-number">3.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">4.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译器特性"><span class="nav-number">5.</span> <span class="nav-text">编译器特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标准库"><span class="nav-number">6.</span> <span class="nav-text">标准库</span></a></li></ol></div>
             
 
           </div>
